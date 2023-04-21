@@ -64,3 +64,27 @@
   padding-left: var(--padding);
   border-left: 4px solid var(--primary-nitro-blue-color);
 }
+
+.product__list {
+  margin-top: var(--margin);
+}
+
+.product__title {
+  font-size: 3.3rem;
+  text-align: center;
+  font-weight: var(--font-weight-light);
+  margin: var(--margin--small) auto;
+}
+
+.product__description {
+  font-size: 1.8rem;
+  font-style: italic;
+  text-align: center;
+  width: 50%;
+  margin: calc(0.5 * var(--margin)) auto;
+}
+
+.product__price {
+  color: var(--primary-nitro-blue-color);
+  text-align: center;
+}

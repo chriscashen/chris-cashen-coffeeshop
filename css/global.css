@@ -7,6 +7,7 @@ GLOBAL STYLES
   /* COLORS */
   /* ---------------------- */
   /* primary colors */
+
   --primary-nitro-blue-color: #5bacc3;
   --primary-nitro-pink-color: #fff0ed;
   /* tints */
@@ -45,6 +46,7 @@ GLOBAL STYLES
   /* margin and padding */
   --padding: 2rem;
   --margin: 2rem;
+  --margin--small: 1rem;
   --gap: 2rem;
   --max-content-width: 140rem;
   /* border radius */
@@ -101,6 +103,7 @@ p {
 
 .nav {
   background-color: var(--primary-nitro-pink-color);
+
   display: flex;
   /* position: fixed; */
   width: 100%;
