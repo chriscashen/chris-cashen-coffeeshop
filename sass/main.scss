@@ -1,0 +1,325 @@
+// COLORS
+$color-primary: #5bacc3;
+$color-seconardy: #fff0ed;
+$color-neutral-graphite: #393939;
+$color-neutral-light-gray: #f7f7f7;
+$color-neutral-white: #fff;
+// TINTS
+$color-primary-dark: #529bb0;
+// SHADOWS
+$box-shadow-color: rgba(0, 0, 0, 0.25);
+// FONT COLORS
+$primary-font-color: #393939;
+$secondary-font-color: #fff;
+$highlight-font-color: #5bacc3;
+// FONT WEIGHTS
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-regular-italic: 400;
+$font-weight-bold: 700;
+// BOX SHADOWS
+$box-shadow: 0 0.5rem 0.9rem -0.1rem;
+// SPACEINGS
+$margin: 2rem;
+$padding: 2rem;
+$gap: 2rem;
+$boarder-radius: 1rem;
+$icon-width: 5rem;
+// ICONS
+$icon-width: 5rem;
+
+//DISPAY
+$max-width: 120rem;
+
+@function marginScale($margin, $scale) {
+}
+
+// ---------------------------------
+// GLOBALS
+// ---------------------------------
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //1 rem === 10px
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  color: $color-neutral-graphite;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+
+  &:link,
+  :visited,
+  :active {
+    text-decoration: none;
+  }
+}
+
+// ---------------------------------
+// NAVIGATION
+// ---------------------------------
+
+.header {
+  background-color: $color-seconardy;
+  width: 100%;
+}
+
+.nav {
+  background-color: var(--primary-nitro-pink-color);
+  display: flex;
+  align-items: center;
+  padding: $padding;
+  width: 100%;
+  max-width: 170rem;
+  margin: 0 auto;
+
+  &__logo-link {
+    display: flex;
+
+    &-img {
+      width: $icon-width;
+    }
+
+    &-text {
+      font-size: 3.3rem;
+      font-weight: $font-weight-light;
+    }
+  }
+
+  // LINKS
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+
+    &-item {
+      &-link {
+        font-size: 2.1rem;
+        transition: all 0.3s;
+
+        &--highlight {
+          color: $highlight-font-color;
+          transition: all 0.3s;
+        }
+      }
+      &-link:hover {
+        color: $color-primary-dark;
+      }
+    }
+  }
+}
+
+// ---------------------------------
+// SECTIONS
+// ---------------------------------
+
+.section {
+  padding: $padding;
+  &--color-secondary {
+    background-color: $color-seconardy;
+  }
+
+  &--color-light-grey {
+    background-color: $color-neutral-light-gray;
+  }
+
+  &--color-white {
+    background-color: $color-neutral-white;
+  }
+}
+
+// ---------------------------------
+// HERO
+// ---------------------------------
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding: $padding;
+  max-width: 120rem;
+  margin: auto;
+
+  &__column {
+    padding: $padding;
+    justify-self: self-start;
+
+    &-title {
+      font-size: 6rem;
+      font-weight: $font-weight-light;
+      line-height: 1;
+    }
+
+    &-body {
+      font-size: 1.8rem;
+      margin: $margin 0;
+    }
+  }
+
+  &__img {
+    grid-column: 2 / 3;
+    padding: $padding;
+  }
+}
+
+// ---------------------------------
+// OUR PRODUCTS
+// ---------------------------------
+
+.products {
+  max-width: $max-width;
+  margin: auto;
+  &__title {
+    font-size: 6rem;
+    font-weight: $font-weight-light;
+    text-align: center;
+    margin: $margin;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    padding: $padding;
+    column-gap: $gap;
+  }
+
+  &__cta {
+    padding: $padding;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.footer {
+  background-color: $color-seconardy;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: $padding;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__column {
+    padding: $padding 0;
+    &-heading {
+      font-size: 3.3rem;
+      font-weight: $font-weight-light;
+      margin: $margin 0;
+    }
+
+    &-sub {
+      font-size: 1.8rem;
+
+      &--bold {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  &__link-img {
+    width: $icon-width;
+  }
+}
+
+// ---------------------------------
+// COMPONENTS
+// ---------------------------------
+// BUTTON
+.btn {
+  background-color: $color-primary;
+  font-size: 2.1rem;
+  color: $color-neutral-white;
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: $color-primary-dark;
+}
+// ---------------------------------
+//CARD
+.card {
+  width: 33rem;
+  height: 44rem;
+  padding: $padding;
+  border-radius: $boarder-radius;
+  box-shadow: $box-shadow $box-shadow-color;
+  margin: 0 $margin;
+  background-color: $color-neutral-white;
+  transition: all 0.3s;
+
+  &__img {
+    height: 28rem;
+    display: flex;
+    margin: 0 auto;
+    padding: $padding;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__price {
+    text-align: center;
+    padding: $padding;
+    color: $color-primary;
+  }
+}
+
+.card:hover {
+  scale: 1.05;
+}
+
+// DISOUNT BANNER
+.discount__banner {
+  width: 90%;
+  padding: $padding;
+  background-color: $color-neutral-graphite;
+  margin: (8 * $margin) auto;
+
+  &-text {
+    font-size: 4.5rem;
+    color: $color-neutral-white;
+    text-align: center;
+
+    &--bold {
+      font-weight: $font-weight-bold;
+      transition: all 0.3s;
+    }
+
+    &--bold:hover {
+      color: $color-primary;
+    }
+  }
+}
+
