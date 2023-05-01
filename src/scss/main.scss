@@ -1,38 +1,5 @@
-// COLORS
-$color-primary: #5bacc3;
-$color-seconardy: #fff0ed;
-$color-neutral-graphite: #393939;
-$color-neutral-light-gray: #f7f7f7;
-$color-neutral-white: #fff;
-// TINTS
-$color-primary-dark: #529bb0;
-// SHADOWS
-$box-shadow-color: rgba(0, 0, 0, 0.25);
-// FONT COLORS
-$primary-font-color: #393939;
-$secondary-font-color: #fff;
-$highlight-font-color: #5bacc3;
-// FONT WEIGHTS
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-regular-italic: 400;
-$font-weight-bold: 700;
-// BOX SHADOWS
-$box-shadow: 0 0.5rem 0.9rem -0.1rem;
-// SPACEINGS
-$margin: 2rem;
-$padding: 2rem;
-$gap: 2rem;
-$boarder-radius: 1rem;
-$icon-width: 5rem;
-// ICONS
-$icon-width: 5rem;
-
-//DISPAY
-$max-width: 120rem;
-
-@function marginScale($margin, $scale) {
-}
+@use "./pages/menu" as *;
+@use "./abstracts/" as *;
 
 // ---------------------------------
 // GLOBALS
@@ -56,6 +23,20 @@ body {
   font-weight: 400;
   color: $color-neutral-graphite;
   box-sizing: border-box;
+}
+
+h1,h2 {
+  font-size: 6rem;
+  font-weight: $font-weight-light;
+}
+
+h3 {
+  font-size: 3.3rem;
+  font-weight: $font-weight-light;
+}
+
+p {
+  font-size: 1.8rem;
 }
 
 ul {
@@ -107,7 +88,7 @@ a {
     }
   }
 
-  // LINKS
+  // NAV LINKS
   &__list {
     display: flex;
     align-items: center;
@@ -135,7 +116,7 @@ a {
 // ---------------------------------
 
 .section {
-  padding: $padding;
+  padding: $padding-lg;
   &--color-secondary {
     background-color: $color-seconardy;
   }

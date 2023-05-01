@@ -1,0 +1,84 @@
+@use "../abstracts/" as *;
+
+
+// ---------------------------------
+// MENU COVER
+// ---------------------------------
+.menu {
+  &__cover {
+    background-image: url(../assests/Assets/coffee-circle.jpg);
+    height: 70rem;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+
+    &-box {
+      background-color: $color-neutral-graphite;
+      width: 30rem;
+      height: 20rem;
+      margin: 0 auto;
+
+      &-title {
+        color: $color-neutral-white;
+        text-align: center;
+      }
+    }
+  }
+
+    &__nav{
+      width: 100%;
+      height: 8rem;
+      padding: $padding;
+      background-color: $color-neutral-graphite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-item {
+        padding: $padding;
+
+        &-link{
+          color: $color-neutral-white;
+          font-size: 2.1rem;
+        }
+        &-link::before {
+          content: '';
+          border-left: solid 4px $color-primary;
+          margin-right: $margin;
+        }
+      }
+
+    }
+}
+
+// ---------------------------------
+// MENU CATEGORGIES
+// ---------------------------------
+
+.catergory__title {
+  text-align: center;
+}
+
+// ---------------------------------
+// MENU ITEMS
+// ---------------------------------
+
+
+.product__list {
+  
+  &-item  {
+    margin-top: $margin-lg;
+
+    &-name {
+      text-align: center;
+    }
+    &-description {
+      text-align: center;
+      font-style: italic;
+    }
+    &-price {
+      text-align: center;
+      color: $color-primary;
+    }
+  }
+}

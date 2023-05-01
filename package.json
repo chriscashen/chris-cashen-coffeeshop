@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "url": "https://github.com/chriscashen/chris-cashen-coffeeshop/issues"
   },
   "homepage": "https://github.com/chriscashen/chris-cashen-coffeeshop#readme",
-  "dependencies": {
-    "node-sass": "^8.0.0"
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.62.1"
   }
 }
