@@ -1,0 +1,306 @@
+@use "./pages/menu" as *;
+@use "./abstracts/" as *;
+
+// ---------------------------------
+// GLOBALS
+// ---------------------------------
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //1 rem === 10px
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  color: $color-neutral-graphite;
+  box-sizing: border-box;
+}
+
+h1,h2 {
+  font-size: 6rem;
+  font-weight: $font-weight-light;
+}
+
+h3 {
+  font-size: 3.3rem;
+  font-weight: $font-weight-light;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+
+  &:link,
+  :visited,
+  :active {
+    text-decoration: none;
+  }
+}
+
+// ---------------------------------
+// NAVIGATION
+// ---------------------------------
+
+.header {
+  background-color: $color-seconardy;
+  width: 100%;
+}
+
+.nav {
+  background-color: var(--primary-nitro-pink-color);
+  display: flex;
+  align-items: center;
+  padding: $padding;
+  width: 100%;
+  max-width: 170rem;
+  margin: 0 auto;
+
+  &__logo-link {
+    display: flex;
+
+    &-img {
+      width: $icon-width;
+    }
+
+    &-text {
+      font-size: 3.3rem;
+      font-weight: $font-weight-light;
+    }
+  }
+
+  // NAV LINKS
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+
+    &-item {
+      &-link {
+        font-size: 2.1rem;
+        transition: all 0.3s;
+
+        &--highlight {
+          color: $highlight-font-color;
+          transition: all 0.3s;
+        }
+      }
+      &-link:hover {
+        color: $color-primary-dark;
+      }
+    }
+  }
+}
+
+// ---------------------------------
+// SECTIONS
+// ---------------------------------
+
+.section {
+  padding: $padding-lg;
+  &--color-secondary {
+    background-color: $color-seconardy;
+  }
+
+  &--color-light-grey {
+    background-color: $color-neutral-light-gray;
+  }
+
+  &--color-white {
+    background-color: $color-neutral-white;
+  }
+}
+
+// ---------------------------------
+// HERO
+// ---------------------------------
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding: $padding;
+  max-width: 120rem;
+  margin: auto;
+
+  &__column {
+    padding: $padding;
+    justify-self: self-start;
+
+    &-title {
+      font-size: 6rem;
+      font-weight: $font-weight-light;
+      line-height: 1;
+    }
+
+    &-body {
+      font-size: 1.8rem;
+      margin: $margin 0;
+    }
+  }
+
+  &__img {
+    grid-column: 2 / 3;
+    padding: $padding;
+  }
+}
+
+// ---------------------------------
+// OUR PRODUCTS
+// ---------------------------------
+
+.products {
+  max-width: $max-width;
+  margin: auto;
+  &__title {
+    font-size: 6rem;
+    font-weight: $font-weight-light;
+    text-align: center;
+    margin: $margin;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    padding: $padding;
+    column-gap: $gap;
+  }
+
+  &__cta {
+    padding: $padding;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.footer {
+  background-color: $color-seconardy;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: $padding;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__column {
+    padding: $padding 0;
+    &-heading {
+      font-size: 3.3rem;
+      font-weight: $font-weight-light;
+      margin: $margin 0;
+    }
+
+    &-sub {
+      font-size: 1.8rem;
+
+      &--bold {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  &__link-img {
+    width: $icon-width;
+  }
+}
+
+// ---------------------------------
+// COMPONENTS
+// ---------------------------------
+// BUTTON
+.btn {
+  background-color: $color-primary;
+  font-size: 2.1rem;
+  color: $color-neutral-white;
+  padding: 1rem 2.5rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: $color-primary-dark;
+}
+// ---------------------------------
+//CARD
+.card {
+  width: 33rem;
+  height: 44rem;
+  padding: $padding;
+  border-radius: $boarder-radius;
+  box-shadow: $box-shadow $box-shadow-color;
+  margin: 0 $margin;
+  background-color: $color-neutral-white;
+  transition: all 0.3s;
+
+  &__img {
+    height: 28rem;
+    display: flex;
+    margin: 0 auto;
+    padding: $padding;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__price {
+    text-align: center;
+    padding: $padding;
+    color: $color-primary;
+  }
+}
+
+.card:hover {
+  scale: 1.05;
+}
+
+// DISOUNT BANNER
+.discount__banner {
+  width: 90%;
+  padding: $padding;
+  background-color: $color-neutral-graphite;
+  margin: (8 * $margin) auto;
+
+  &-text {
+    font-size: 4.5rem;
+    color: $color-neutral-white;
+    text-align: center;
+
+    &--bold {
+      font-weight: $font-weight-bold;
+      transition: all 0.3s;
+    }
+
+    &--bold:hover {
+      color: $color-primary;
+    }
+  }
+}
+
