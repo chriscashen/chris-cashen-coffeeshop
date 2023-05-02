@@ -265,10 +265,11 @@ a {
 
 
 
-
 .footer {
   background-color: $color-seconardy;
   position: relative;
+  overflow: hidden;
+
 
   &__icon {
     width: 12rem;
@@ -335,12 +336,12 @@ a {
   transition: all 0.3s;
   position: relative;
 }
-
 .btn::before {
   content: '';
-  position: absolute;
+  position: a;
   top: -5px;
   left: -5px;
+  position: absolute;
   border: solid 2px $color-neutral-graphite;
   margin-right: $margin;
   // z-index: 100;
