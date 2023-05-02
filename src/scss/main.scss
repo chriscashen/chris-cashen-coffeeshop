@@ -218,7 +218,9 @@ a {
 
 .about {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  min-height: 50vh;
 
 
   &__left {
@@ -407,7 +409,7 @@ a {
   width: 90%;
   padding: $padding;
   background-color: $color-neutral-graphite;
-  margin: (8 * $margin) auto;
+  margin: (5 * $margin) auto;
 
   &-text {
     font-size: 4.5rem;
