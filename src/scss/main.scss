@@ -5,6 +5,18 @@
 // GLOBALS
 // ---------------------------------
 
+@mixin btn-animation ($content) {
+  content: $content;
+  padding: 1rem 2.5rem;
+  top: -5px;
+  left: -5px;
+  position: absolute;
+  color: $color-neutral-white;
+  box-shadow: inset 0px 0px 0px 2px $color-neutral-graphite;
+  height: 100%;
+  transition: all 0.3s;
+}
+
 *,
 *::after,
 *::before {
@@ -25,7 +37,8 @@ body {
   box-sizing: border-box;
 }
 
-h1,h2 {
+h1,
+h2 {
   font-size: 6rem;
   font-weight: $font-weight-light;
 }
@@ -57,6 +70,10 @@ a {
   }
 }
 
+.icon {
+  width: 5rem;
+}
+
 // ---------------------------------
 // NAVIGATION
 // ---------------------------------
@@ -70,6 +87,7 @@ a {
   background-color: var(--primary-nitro-pink-color);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: $padding;
   width: 100%;
   max-width: 170rem;
@@ -104,6 +122,7 @@ a {
           transition: all 0.3s;
         }
       }
+
       &-link:hover {
         color: $color-primary-dark;
       }
@@ -117,6 +136,7 @@ a {
 
 .section {
   padding: $padding-lg;
+
   &--color-secondary {
     background-color: $color-seconardy;
   }
@@ -128,6 +148,14 @@ a {
   &--color-white {
     background-color: $color-neutral-white;
   }
+
+  &__container {
+    max-width: $max-width;
+    padding: $padding;
+    width: 100%;
+    margin: 0 auto;
+  }
+
 }
 
 // ---------------------------------
@@ -172,6 +200,7 @@ a {
 .products {
   max-width: $max-width;
   margin: auto;
+
   &__title {
     font-size: 6rem;
     font-weight: $font-weight-light;
@@ -195,8 +224,82 @@ a {
   }
 }
 
+// ---------------------------------
+// ABOUT US
+// ---------------------------------
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50vh;
+
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__right {
+    width: 40rem;
+    height: 36rem;
+    background-image: url(../assests/images/coldbrewbackground.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all;
+
+    &-img {
+      height: 280px;
+      padding: $padding;
+      z-index: 100;
+    }
+  }
+
+  &__right::after {
+    content: '';
+    position: absolute;
+    top: -1.5rem;
+    left: -1.5rem;
+    border: solid 5px $color-primary;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s;
+  }
+
+}
+
+
+
 .footer {
   background-color: $color-seconardy;
+  position: relative;
+  overflow: hidden;
+
+
+  &__icon {
+    width: 12rem;
+    opacity: 25%;
+    position: absolute;
+    padding: $padding;
+    
+    &--left{
+      left: -5rem;
+    }
+    &--right{
+      bottom: 0rem;
+      right: -5rem;
+    }
+  }
+
 
   &__grid {
     display: grid;
@@ -209,6 +312,7 @@ a {
 
   &__column {
     padding: $padding 0;
+
     &-heading {
       font-size: 3.3rem;
       font-weight: $font-weight-light;
@@ -235,44 +339,68 @@ a {
 // BUTTON
 .btn {
   background-color: $color-primary;
+  height: auto;
   font-size: 2.1rem;
-  color: $color-neutral-white;
+  color: transparent;
   padding: 1rem 2.5rem;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
   transition: all 0.3s;
+  position: relative;
+  width: max-content;
+}
+
+.btn--shop-now::before {
+  @include btn-animation('shop now');
+}
+
+.btn--learn-more::before {
+  @include btn-animation('learn more')
+}
+
+.btn:active::before {
+  translate: 5px 5px;
 }
 
 .btn:hover {
   background-color: $color-primary-dark;
 }
+
 // ---------------------------------
 //CARD
 .card {
   width: 33rem;
   height: 44rem;
-  padding: $padding;
   border-radius: $boarder-radius;
   box-shadow: $box-shadow $box-shadow-color;
   margin: 0 $margin;
-  background-color: $color-neutral-white;
   transition: all 0.3s;
+  background-color: $color-seconardy;
+
+  &__upper {
+    background-color: $color-neutral-white;
+    border-radius: $boarder-radius $boarder-radius 0 0;
+  }
 
   &__img {
     height: 28rem;
     display: flex;
     margin: 0 auto;
     padding: $padding;
+
   }
 
-  &__title {
-    text-align: center;
+  &__lower {
+    display: flex;
+    flex-grow: 1;
+    padding: $padding-lg $padding;
+    justify-content: space-between;
+    align-items: center;
+
   }
 
   &__price {
-    text-align: center;
-    padding: $padding;
     color: $color-primary;
   }
 }
@@ -286,7 +414,7 @@ a {
   width: 90%;
   padding: $padding;
   background-color: $color-neutral-graphite;
-  margin: (8 * $margin) auto;
+  margin: (5 * $margin) auto;
 
   &-text {
     font-size: 4.5rem;
@@ -304,3 +432,36 @@ a {
   }
 }
 
+
+
+// ---------------------------------
+// ANIMATIONS
+// ---------------------------------
+// SPINNING CAN
+.rotate:hover {
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+// FLASHING BANNER
+.flash {
+  animation: flash 2.5s infinite ease-in-out;
+}
+@keyframes flash {
+  0% {
+    background-color: $color-neutral-graphite;
+  }
+
+  50% {
+    background-color: $color-primary;
+
+  }
+
+  100% {
+    background-color: $color-neutral-graphite;
+  }
+}
